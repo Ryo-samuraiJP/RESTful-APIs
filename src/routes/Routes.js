@@ -1,14 +1,8 @@
-import {
-  addNewContact,
-  getContacts,
-  getContactWithID,
-} from "../controllers/controller";
+import { addNewContact, getContacts } from "../controllers/controller";
 
 const routes = (app) => {
   app
     .route("/contact")
-
-    // to get all contacts
     .get((req, res, next) => {
       // middleware
       console.log(`Request from: ${req.originalUrl}`);
@@ -16,14 +10,10 @@ const routes = (app) => {
       next();
     }, getContacts)
 
-    // to add a new contact
     .post(addNewContact);
 
   app
     .route("/contact/:contactId")
-
-    // to get specific contact
-    .get(getContactWithID)
     .put((req, res) => res.send("PUT request successfull!"))
 
     .delete((req, res) => res.send("DELETE request successfull!"));

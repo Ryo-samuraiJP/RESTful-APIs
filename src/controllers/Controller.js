@@ -21,12 +21,3 @@ export const getContacts = async (req, res) => {
     res.send(err);
   }
 };
-
-export const getContactWithID = async (req, res) => {
-  try {
-    const contacts = await Contact.findById(req.params.contactId);
-    res.json(contacts);
-  } catch (err) {
-    res.send(err);
-  }
-};
