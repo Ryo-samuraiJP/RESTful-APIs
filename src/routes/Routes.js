@@ -2,6 +2,7 @@ import {
   addNewContact,
   getContacts,
   getContactWithID,
+  updateContact,
 } from "../controllers/controller";
 
 const routes = (app) => {
@@ -24,7 +25,9 @@ const routes = (app) => {
 
     // to get specific contact
     .get(getContactWithID)
-    .put((req, res) => res.send("PUT request successfull!"))
+
+    // to update specific contact
+    .put(updateContact)
 
     .delete((req, res) => res.send("DELETE request successfull!"));
 };
